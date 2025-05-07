@@ -1,0 +1,17 @@
+<div class="status-section" *ngIf="processingId">
+    <h3>Processing Status</h3>
+    
+    <div class="status-info">
+      <div class="status-label">Processing ID:</div>
+      <div class="status-value">{{ processingId }}</div>
+    </div>
+    
+    <div class="status-info" *ngIf="status">
+      <div class="status-label">Status:</div>
+      <div class="status-value" [ngClass]="getStatusClass()">{{ status }}</div>
+    </div>
+    
+    <div class="status-explanation" [ngClass]="{'error': status === UploadState.Failed || status === UploadState.VirusDetected}">
+      {{ getStatusDescription() }}
+    </div>
+  </div>

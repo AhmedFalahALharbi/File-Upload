@@ -1,0 +1,56 @@
+<div class="file-upload-container">
+    <h2>Secure File Upload</h2>
+    
+    <div class="upload-section">
+      <div class="file-selector">
+        <input 
+          type="file" 
+          id="fileInput" 
+          (change)="onFileSelected($event)" 
+          [disabled]="isUploading || isProcessing"
+        >
+        <label for="fileInput" class="file-input-label">
+          <span>Select File</span>
+        </label>
+        <span *ngIf="selectedFile" class="file-name">{{ selectedFile.name }}</span>
+      </div>
+      
+      <button 
+        (click)="uploadFile()" 
+        [disabled]="!selectedFile || isUploading || isProcessing"
+        class="upload-button"
+      >
+        Upload
+      </button>
+      
+      <button 
+        *ngIf="isCompleted || error" 
+        (click)="reset()" 
+        class="reset-button"
+      >
+        Reset
+      </button>
+    </div>
+    
+    <!-- Upload Progress -->
+    <div *ngIf="isUploading" class="progress-section">
+      <h3>Uploading File...</h3>
+      <div class="progress-bar-container">
+        <div class="progress-bar" [style.width.%]="uploadProgress"></div>
+      </div>
+      <div class="progress-text">{{ uploadProgress }}%</div>
+    </div>
+    
+    <!-- Processing Status - Now using the dedicated component -->
+    <app-upload-status 
+      *ngIf="processingId && (isProcessing || isCompleted)"
+      [processingId]="processingId"
+      [status]="currentState"
+      [errorMessage]="error"
+    ></app-upload-status>
+    
+    <!-- Error Display -->
+    <div *ngIf="error && !isProcessing && !isCompleted" class="error-section">
+      <div class="error-message">{{ error }}</div>
+    </div>
+  </div>

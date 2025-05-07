@@ -1,0 +1,64 @@
+.app-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #fffdfc, #fef6f6);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header h1 {
+  font-size: 2.25rem;
+  color: #39bbe6; 
+  margin-bottom: 0.5rem;
+}
+
+header .subtitle {
+  color: #457b9d; 
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+main {
+  margin-bottom: 2rem;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #a8dadc;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  text-align: left;
+  flex-wrap: wrap;
+  background-color: #f1faee; 
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+footer h3 {
+  font-size: 1.1rem;
+  color: #1d3557; 
+  margin-bottom: 0.5rem;
+}
+
+footer p {
+  color: #6d6875;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
